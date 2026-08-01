@@ -1,0 +1,46 @@
+name: Publish to Open VSX
+
+on:
+  workflow_dispatch:
+    inputs:
+      create_namespace:
+        description: Create the savepinner namespace before publishing
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run package:vsix -- --out pinterest-url-audit.vsix
+      - name: Require Open VSX token
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: |
+          if [ -z "$OVSX_PAT" ]; then
+            echo "::error::Add OVSX_PAT as a repository secret before publishing."
+            exit 1
+          fi
+      - name: Create namespace
+        if: ${{ inputs.create_namespace }}
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: npm exec ovsx -- --pat "$OVSX_PAT" create-namespace savepinner
+      - name: Verify publisher access
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: npm exec ovsx -- --pat "$OVSX_PAT" verify-pat savepinner
+      - name: Publish extension
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: npm exec ovsx -- --pat "$OVSX_PAT" publish pinterest-url-audit.vsix

@@ -83,6 +83,7 @@
     "@types/vscode": "^1.85.0",
     "@vscode/vsce": "^3.7.0",
     "esbuild": "^0.25.0",
+    "ovsx": "^1.0.2",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0"
   }
