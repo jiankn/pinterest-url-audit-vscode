@@ -1,0 +1,89 @@
+{
+  "name": "pinterest-url-audit",
+  "displayName": "Pinterest URL Audit",
+  "description": "Find unsafe or non-canonical Pinterest URLs and fix them without network requests.",
+  "version": "0.1.0",
+  "publisher": "savepinner",
+  "type": "module",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "pricing": "Free",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "keywords": [
+    "pinterest",
+    "url",
+    "link",
+    "security",
+    "normalizer",
+    "linter"
+  ],
+  "galleryBanner": {
+    "color": "#fbf7f4",
+    "theme": "light"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiankn/pinterest-url-audit-vscode.git"
+  },
+  "homepage": "https://savepinner.com/pinterest-downloader/",
+  "bugs": {
+    "url": "https://github.com/jiankn/pinterest-url-audit-vscode/issues"
+  },
+  "main": "./dist/extension.cjs",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "pinterestUrlAudit.scanDocument",
+        "title": "Pinterest URL Audit: Scan Current File"
+      },
+      {
+        "command": "pinterestUrlAudit.normalizeAtCursor",
+        "title": "Pinterest URL Audit: Normalize URL at Cursor"
+      }
+    ],
+    "configuration": {
+      "title": "Pinterest URL Audit",
+      "properties": {
+        "pinterestUrlAudit.enableDiagnostics": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show diagnostics for invalid and non-canonical Pinterest URLs."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --platform=node --format=cjs --external:vscode --outfile=dist/extension.cjs --sourcemap",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "vscode:prepublish": "npm run check",
+    "package:vsix": "vsce package"
+  },
+  "dependencies": {
+    "pinterest-url-normalizer": "^0.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.7.0",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
