@@ -2,7 +2,7 @@
   "name": "pinterest-url-audit",
   "displayName": "Pinterest URL Audit",
   "description": "Find unsafe or non-canonical Pinterest URLs and fix them without network requests.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "savepinner",
   "type": "module",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "type": "git",
     "url": "https://github.com/jiankn/pinterest-url-audit-vscode.git"
   },
-  "homepage": "https://savepinner.com/pinterest-downloader/",
+  "homepage": "https://savepinner.com",
   "bugs": {
     "url": "https://github.com/jiankn/pinterest-url-audit-vscode/issues"
   },
@@ -76,7 +76,7 @@
     "package:vsix": "vsce package"
   },
   "dependencies": {
-    "pinterest-url-normalizer": "^0.1.1"
+    "pinterest-url-normalizer": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

@@ -2,7 +2,7 @@
 
 Find unsafe or non-canonical Pinterest URLs directly in VS Code, then replace non-canonical links with one quick fix. All analysis runs locally without network requests.
 
-[SavePinner](https://savepinner.com/pinterest-downloader/) · [GitHub Action](https://github.com/marketplace/actions/pinterest-url-audit) · [Python package](https://pypi.org/project/pinterest-url-normalizer/) · [TypeScript package](https://jsr.io/@savepinner/pinterest-url-normalizer)
+[Pinterest image downloader](https://savepinner.com) · [GitHub Action](https://github.com/marketplace/actions/pinterest-url-audit) · [Python package](https://pypi.org/project/pinterest-url-normalizer/) · [TypeScript package](https://jsr.io/@savepinner/pinterest-url-normalizer)
 
 ## What it detects
 
@@ -36,7 +36,7 @@ https://www.pinterest.com/pin/987654321/
 
 The extension does not fetch, resolve, download, or transmit URLs. It contains no telemetry, browser automation, or remote code. Documents larger than 1 MB are skipped to keep editing responsive.
 
-This extension is maintained by the team behind [SavePinner](https://savepinner.com/pinterest-downloader/), a browser tool for inspecting media exposed by public Pinterest Pin URLs.
+This extension is maintained by the team behind the [Pinterest image downloader](https://savepinner.com), a browser tool for inspecting media exposed by public Pinterest Pin URLs.
 
 Pinterest is a trademark of Pinterest, Inc. This project is independent and is not affiliated with or endorsed by Pinterest.
 
