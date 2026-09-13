@@ -34,6 +34,10 @@ https://www.pinterest.com/pin/987654321/
 
 ## Privacy and security
 
+Read the [privacy and permission audit guide](docs/extension-privacy-permission-audit.md) to reproduce the manifest, source, build, and packaged-VSIX checks.
+
+
+
 The extension does not fetch, resolve, download, or transmit URLs. It contains no telemetry, browser automation, or remote code. Documents larger than 1 MB are skipped to keep editing responsive.
 
 This extension is maintained by the team behind the [Pinterest image downloader](https://savepinner.com), a browser tool for inspecting media exposed by public Pinterest Pin URLs.
